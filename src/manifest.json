@@ -1,7 +1,7 @@
 {
-  "name": "Light tab suspender for Chrome",
-  "description": "Great suspender alternative",
-  "version": "1.0",
+  "name": "Light Tab Suspender",
+  "description": "Alternative to the great suspender",
+  "version": "1.0.1",
   "manifest_version": 2,
   "permissions": [
     "tabs"
@@ -17,5 +17,8 @@
       },
       "description": "Suspend / Unsuspend Tab"
     }
+  },
+  "icons": {
+    "128": "icon-128.png"
   }
 }
