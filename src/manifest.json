@@ -1,0 +1,21 @@
+{
+  "name": "Light tab suspender for Chrome",
+  "description": "Great suspender alternative",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "commands": {
+    "suspend_tab": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "Suspend / Unsuspend Tab"
+    }
+  }
+}
