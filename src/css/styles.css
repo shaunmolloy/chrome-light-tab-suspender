@@ -1,0 +1,15 @@
+body {
+  padding: 2em;
+  background: #eee;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+}
+
+.content {
+  line-height: 2em;
+  text-align: center;
+}
+
+.content__top {
+  min-height: 300px;
+}

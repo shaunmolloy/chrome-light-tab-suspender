@@ -1,15 +1,34 @@
 {
   "name": "Light Tab Suspender",
   "description": "Alternative to the great suspender",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "manifest_version": 2,
   "permissions": [
     "tabs"
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "js/vendor/browser-polyfill.js",
+      "js/helpers/promise.js",
+      "js/helpers/suspend.js",
+      "js/helpers/commands.js",
+      "js/background.js"
+    ],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "js": [
+        "js/content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "js/tab.js"
+  ],
   "commands": {
     "suspend_tab": {
       "suggested_key": {
