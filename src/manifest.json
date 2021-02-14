@@ -7,9 +7,28 @@
     "tabs"
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "js/vendor/browser-polyfill.js",
+      "js/helpers/promise.js",
+      "js/helpers/suspend.js",
+      "js/helpers/commands.js",
+      "js/background.js"
+    ],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "js": [
+        "js/content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "js/tab.js"
+  ],
   "commands": {
     "suspend_tab": {
       "suggested_key": {
