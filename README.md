@@ -9,7 +9,7 @@ An alternative Chrome extension to [the great suspender](https://github.com/grea
 
 **Demo:**  
 
-![Suspend / Unsuspend Tab](suspend-tab.gif)
+![Suspend / Unsuspend Tab](suspend-tab.gif?2021021509041)
 
 ### Install extension from source
 
