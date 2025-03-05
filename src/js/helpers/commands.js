@@ -1,6 +1,6 @@
-/* global chrome, promise, suspend */
+/* global chrome, promise, suspend, suspendUrl */
 
-window.commands = {};
+const commands = {};
 
 commands.suspendTabCommand = (() => {
   chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
@@ -15,3 +15,6 @@ commands.suspendTabCommand = (() => {
     }
   });
 });
+
+// Export for service worker context
+self.commands = commands;
