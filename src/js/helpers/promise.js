@@ -1,6 +1,6 @@
 /* global chrome */
 
-window.promise = {};
+const promise = {};
 
 promise.sendMessage = ((tabId, item) => {
   return new Promise((resolve, reject) => {
@@ -19,3 +19,6 @@ promise.tabsUpdate = ((tabId, properties) => {
     resolve(chrome.tabs.update(tabId, properties, resolve));
   });
 });
+
+// Export for service worker context
+self.promise = promise;

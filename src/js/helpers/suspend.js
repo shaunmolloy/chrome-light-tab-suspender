@@ -8,12 +8,17 @@ function getUrl(url) {
   return params.get('url');
 }
 
-window.suspend = {};
+const suspend = {};
 
+// Store tab information in chrome.storage instead of localStorage
 suspend.suspend = ((tab) => {
-  const url = `${suspendUrl}#url=${tab.url}`;
-  localStorage.setItem('title', tab.title);
-  localStorage.setItem('url', tab.url);
+  const url = `${suspendUrl}#tabId=${tab.id}&url=${tab.url}`;
+  
+  // Store data in chrome.storage.session
+  chrome.storage.session.set({
+    [`tab_${tab.id}_title`]: tab.title,
+    [`tab_${tab.id}_url`]: tab.url
+  });
 
   promise.tabsUpdate(tab.id, { url })
     .then(() => {
@@ -28,5 +33,8 @@ suspend.suspend = ((tab) => {
 });
 
 suspend.unsuspend = ((tab) => {
-  promise.tabsUpdate(tab.id,{ url: getUrl(tab.url) });
+  promise.tabsUpdate(tab.id, { url: getUrl(tab.url) });
 });
+
+// Export for service worker context
+self.suspend = suspend;
