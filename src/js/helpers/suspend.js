@@ -5,31 +5,18 @@ const suspendUrl = `chrome-extension://${chrome.runtime.id}/tab.html`;
 function getUrl(url) {
   const uri = new URL(url).hash;
   const params = new URLSearchParams(uri.substring(1));
-  return params.get('url');
+  return decodeURIComponent(params.get('url') || '');
 }
 
 const suspend = {};
 
-// Store tab information in chrome.storage instead of localStorage
 suspend.suspend = ((tab) => {
-  const url = `${suspendUrl}#tabId=${tab.id}&url=${tab.url}`;
-  
-  // Store data in chrome.storage.session
-  chrome.storage.session.set({
-    [`tab_${tab.id}_title`]: tab.title,
-    [`tab_${tab.id}_url`]: tab.url
-  });
+  // Include title in the URL parameters (URI encoded)
+  const encodedTitle = encodeURIComponent(tab.title);
+  const encodedUrl = encodeURIComponent(tab.url);
+  const url = `${suspendUrl}#tabId=${tab.id}&url=${encodedUrl}&title=${encodedTitle}`;
 
-  promise.tabsUpdate(tab.id, { url })
-    .then(() => {
-      const request = {
-        action: 'updateSuspendedTab',
-        title: tab.title,
-        url: tab.url,
-      };
-
-      promise.sendMessage(tab.id, request);
-    });
+  promise.tabsUpdate(tab.id, { url });
 });
 
 suspend.unsuspend = ((tab) => {

@@ -1,25 +1,14 @@
 {
   "name": "Light Tab Suspender",
   "description": "Alternative to the great suspender",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "manifest_version": 3,
   "permissions": [
-    "tabs",
-    "storage"
+    "tabs"
   ],
   "background": {
     "service_worker": "js/background.js"
   },
-  "content_scripts": [
-    {
-      "js": [
-        "js/content.js"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ],
   "web_accessible_resources": [
     {
       "resources": [
