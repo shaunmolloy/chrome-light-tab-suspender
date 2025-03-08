@@ -10,6 +10,12 @@ When you unsuspend a tab, it instantly restores to its original state.
 
 ---
 
+1. [Install](#install)
+2. [Usage](#usage)
+3. [Demo](#demo)
+
+---
+
 ## Install
 
 ### a) Install from Chrome web store
