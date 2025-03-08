@@ -10,19 +10,6 @@ When you unsuspend a tab, it instantly restores to its original state.
 
 ---
 
-## Usage
-
-1. Visit [chrome://extensions/shortcuts](chrome://extensions/shortcuts) for setting extension keyboard shortcuts.
-2. Under "Light Tab Suspender", set a shortcut e.g. `Alt + S`, to suspend and unsuspend a tab.
-
----
-
-## Demo 
-
-![Suspend / Unsuspend Tab](suspend-tab.gif?2021021509041)
-
----
-
 ## Install
 
 ### a) Install from Chrome web store
@@ -38,3 +25,16 @@ When you unsuspend a tab, it instantly restores to its original state.
 2. In Google Chrome, navigate to "chrome://extensions/" and select enable "Developer mode" in the upper right corner.
 3. Click the "Load unpacked extension" button.
 4. Browse to the `src` directory from the cloned repository and confirm.
+
+---
+
+## Usage
+
+1. Visit [chrome://extensions/shortcuts](chrome://extensions/shortcuts) for setting extension keyboard shortcuts.
+2. Under "Light Tab Suspender", set a shortcut e.g. `Alt + S`, to suspend and unsuspend a tab.
+
+---
+
+## Demo 
+
+![Suspend / Unsuspend Tab](suspend-tab.gif?2021021509041)
