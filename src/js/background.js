@@ -15,3 +15,12 @@ chrome.commands.onCommand.addListener((command) => {
       break;
   }
 });
+
+// Handle browser action (extension icon) click
+chrome.action.onClicked.addListener((tab) => {
+  if (tab.url.includes(suspendUrl)) {
+    suspend.unsuspend(tab);
+  } else {
+    suspend.suspend(tab);
+  }
+});

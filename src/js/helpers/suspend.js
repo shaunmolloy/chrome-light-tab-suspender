@@ -14,7 +14,8 @@ suspend.suspend = ((tab) => {
   // Include title in the URL parameters (URI encoded)
   const encodedTitle = encodeURIComponent(tab.title);
   const encodedUrl = encodeURIComponent(tab.url);
-  const url = `${suspendUrl}#tabId=${tab.id}&url=${encodedUrl}&title=${encodedTitle}`;
+  const encodedFavicon = encodeURIComponent(tab.favIconUrl);
+  const url = `${suspendUrl}#tabId=${tab.id}&url=${encodedUrl}&title=${encodedTitle}&favicon=${encodedFavicon}`;
 
   promise.tabsUpdate(tab.id, { url });
 });
